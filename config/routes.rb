@@ -1,4 +1,10 @@
 RockPaperScissors::Application.routes.draw do
+  get "throw/rock"
+
+  get "throw/paper"
+
+  get "throw/scissors"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
