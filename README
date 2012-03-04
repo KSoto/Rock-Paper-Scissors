@@ -3,12 +3,12 @@ Katie Soto
 Homework 6
 Implement the Sinatra Rock, Paper, Scissors app into a Rails app.
 
-<u><b>Deployed at http://growing-river-1972.heroku.com/</u></b>
+**Deployed at [growing-river-1972.heroku.com](http://growing-river-1972.heroku.com/)**
 
-<u>Initial steps that should be taken:</u>
+**Initial steps that should be taken:**
 rails new sample_app 
 cd sample_app
-vi Gemfile <i>Add these lines:</i>
+vi Gemfile *Add these lines:*
        group :development do
   		gem 'rspec-rails', '2.6.1'
 	end
