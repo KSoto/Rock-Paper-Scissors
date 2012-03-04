@@ -63,9 +63,9 @@ rails generate controller throw my_throw
 
 	added: spec/controllers/throw_controller_spec.rb
 
-rails generate controller stats index
+rails generate controller stats index *(then change routes.rb to 'match' instead)*
 
-rails generate controller clear index
+rails generate controller clear index *(then change routes.rb to 'match' instead)*
 
 ------------testing--------------
 

@@ -8,4 +8,8 @@ RockPaperScissors::Application.routes.draw do
 
   match 'clear' => 'clear#index'
 
+  match 'throw' => 'throw#instructions'
+
+  match '' => 'throw#instructions'
+
 end

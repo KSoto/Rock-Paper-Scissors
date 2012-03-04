@@ -28,4 +28,8 @@ def my_throw
     #end
 end
 
+def instructions
+	#all information will be displayed in the view, instructions.html.erb
+end
+
 end
