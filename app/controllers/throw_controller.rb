@@ -1,11 +1,4 @@
 class ThrowController < ApplicationController
-  def rock
+  def my_throw
   end
-
-  def paper
-  end
-
-  def scissors
-  end
-
 end
