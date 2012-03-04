@@ -10,6 +10,8 @@ Implement the Sinatra Rock, Paper, Scissors app into a Rails app.
 
 **Deployed at [growing-river-1972.heroku.com](http://growing-river-1972.heroku.com/)**
 
+---------------------------------------------------------------------------------
+
 **Initial steps that should be taken:**
 
 rails new sample_app 
@@ -61,6 +63,14 @@ rails generate controller throw my_throw
 
 	added: spec/controllers/throw_controller_spec.rb
 
+rails generate controller stats index
+
+rails generate controller clear index
+
+------------testing--------------
+
 git rm -r spec/views
 
 git rm -r spec/helpers
+
+bundle exec rspec spec/
