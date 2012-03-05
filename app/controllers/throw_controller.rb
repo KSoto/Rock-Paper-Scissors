@@ -1,4 +1,6 @@
 class ThrowController < ApplicationController
+layout "throw"
+
 before_filter do
   @defeat = {rock: :scissors, paper: :rock, scissors: :paper}
   @throws = @defeat.keys
