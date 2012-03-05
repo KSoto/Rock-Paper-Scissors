@@ -1,26 +1,13 @@
 require 'spec_helper'
 
 describe ThrowController do
-
-  describe "GET 'rock'" do
+  @my_throw = "rock"
+  @comp_throw = "paper"
+ 
+  describe "GET random page (rock, paper, or scissors)" do
     it "should be successful" do
-      get 'rock'
+      match 'throw/@my_throw' => 'throw#my_throw'
       response.should be_success
     end
   end
-
-  describe "GET 'paper'" do
-    it "should be successful" do
-      get 'paper'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'scissors'" do
-    it "should be successful" do
-      get 'scissors'
-      response.should be_success
-    end
-  end
-
 end
