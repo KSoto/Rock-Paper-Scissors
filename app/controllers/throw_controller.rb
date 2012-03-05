@@ -10,22 +10,25 @@ def my_throw
     if !@throws.include?(@player_throw)
         #halt 403, "You must throw one of the following: #{@throws}"
     end
-    #session[:history].push(@player_throw)
-    #session[:history].push(@computer_throw)
+    #session[:history] must first be declared as a new array,
+    #which is done in application_controller.rb
+    #append the player's throw and the comp's throw to be
+    #printed out in stats later
+    session[:history] << @player_throw
+    session[:history] << @computer_throw
     
-    #if @player_throw == @computer_throw
-      #session[:counter] += 1
-      #session[:history].push("tie")
-      #erb :tie
-    #elsif @computer_throw == @defeat[@player_throw]
-      #session[:counter] += 1
-      #session[:history].push("win")  
-      #erb :win
-    #else
-      #session[:counter] += 1 
-      #session[:history].push("lose")
-      #erb :lose
-    #end
+    session[:counter] += 1
+
+    if @player_throw == @computer_throw
+      session[:history] << "Tie"
+      @result = "You tied."
+    elsif @computer_throw == @defeat[@player_throw]
+      session[:history] << "Win"  
+      @result = "You Won!"
+    else
+      session[:history] << "Lose"
+      @result = "You Lost!"
+    end
 end
 
 def instructions
