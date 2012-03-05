@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rock, Paper, Scissors!</title>
+  <title>Katie Soto - Rock, Paper, Scissors!</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -10,5 +10,13 @@
 
 <%= yield %>
 
+<br />
+<a href = "/throw/rock">Click here to throw rock!</a><br />
+<a href = "/throw/paper">Click here to throw paper!</a><br />
+<a href = "/throw/scissors">Click here to throw scissors!</a><br />
+<br />
+<a href = "/throw">Click here learn how to play</a><br />
+<a href = "/stats">Click here view throw history</a><br />
+<a href = "/clear">Click here to clear your session</a>
 </body>
 </html>

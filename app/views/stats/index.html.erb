@@ -1,2 +1,27 @@
-<h1>Stats#index</h1>
-<p>Find me in app/views/stats/index.html.erb</p>
+<h1>Rock, Paper, Scissors - Stats</h1>
+  From least recent (top), to most recent (bottom)
+  <table border=1>
+    <tr>
+      <td>Your Throw:</td>
+      <td>Computer's Throw:</td>
+      <td>Result:</td>
+    </tr>
+  <% @count=0 %>
+  <% until @count == session[:history].length do %>
+    <tr>
+      <td>
+        <%= session[:history][@count] %>
+        <% @count+=1 %>
+      </td>
+      <td>
+        <%= session[:history][@count] %>
+        <% @count+=1 %>
+      </td>
+      <td>
+        <%= session[:history][@count] %>
+        <% @count+=1 %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
