@@ -1,6 +1,11 @@
 <h1>Rock, Paper Scissors!</h1>
-<p>You threw '<strong><u><%=params[:type]%></strong></u>'</p>
-<p>The computer threw '<strong><u><%=@computer_throw%></strong></u>'</p>
-<h2><%=@result%></h2>
-<p>Number of tries: <%= session[:counter] %></p>
-<strong><u>Play again?</u></strong>
+<% if (@result == "invalid") %>
+	<p>Error. You must throw one of the following: <%=@throws%> </p>
+<% else %>
+	<p>You threw '<strong><u><%=params[:type]%></strong></u>'</p>
+	<p>The computer threw '<strong><u><%=@computer_throw%></strong></u>'</p>
+	<h2><%=@result%></h2>
+	<p>Number of tries: <%= session[:counter] %></p>
+<% end %>
+	<strong><u>Play again?</u></strong>
+

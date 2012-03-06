@@ -7,9 +7,9 @@ end
 
 def my_throw
     @player_throw = params[:type].to_sym
-    if !@throws.include?(@player_throw)
-        #halt 403, "You must throw one of the following: #{@throws}"
-    end
+if !@throws.include?(@player_throw)
+	@result = "invalid"
+else
     #session[:history] must first be declared as a new array,
     #which is done in application_controller.rb
     #append the player's throw and the comp's throw to be
@@ -29,7 +29,8 @@ def my_throw
       session[:history] << "Lose"
       @result = "You Lost!"
     end
-end
+end #end if/else
+end #end def
 
 def instructions
 	#all information will be displayed in the view, instructions.html.erb
