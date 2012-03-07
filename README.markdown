@@ -1,3 +1,5 @@
+CURRENT STATUS: Everything works except for one of the tests -[throw_controller_spec](https://github.com/KSoto/Rock-Paper-Scissors/blob/master/spec/controllers/throw_controller_spec.rb)
+
 CPSC 473 - Web Programming and Data Management
 
 Katie Soto
@@ -43,7 +45,7 @@ git init
 
 git add .
 
-git commit –m “Initial commit”
+git commit ï¿½m ï¿½Initial commitï¿½
 
 git remote add origin git@github.com:KSoto/sample_app.git
 
@@ -53,7 +55,7 @@ heroku create
 
 git push heroku master
 
-rails generate controller throw my_throw
+**rails generate controller throw my_throw**
 
 	changed: config/routes.rb
 
@@ -73,4 +75,4 @@ git rm -r spec/views
 
 git rm -r spec/helpers
 
-bundle exec rspec spec/
+**bundle exec rspec spec/**
