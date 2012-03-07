@@ -20,7 +20,10 @@ describe ThrowController do
   describe "GET instructions" do
 	it "should be successful" do
 		match 'throw'
-    		#response.should contain("The game is played as follows")
+    		#render isn't working for me...
+		#render
+		#rendered.should =~ "The game is played as follows"
+		#response.should contain("The game is played as follows")
 		response.should be_success
 	end
   end
@@ -38,14 +41,12 @@ describe ThrowController do
 		match "/throw/#{@my_throw}"
 		
 		#result is ending up nil...
-		result = assigns(:result)
-
     		if @my_throw==@comp_throw
-			result.should == "You tied."
+			assigns(:result).should == "You tied."
     		elsif @comp_throw == @defeat[@my_throw] 
-     		 	result.should == "You Won!"
+     		 	assigns(:result).should == "You Won!"
     		else
-       		result.should == "You Lost!"
+       		assigns(:result).should == "You Lost!"
     		end
 
 	end
