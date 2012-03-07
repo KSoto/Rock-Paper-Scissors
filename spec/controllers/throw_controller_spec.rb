@@ -1,18 +1,32 @@
 require 'spec_helper'
 
 describe ThrowController do
+ #render_views is NOT automatic. Need to put it here!
+  render_views
+ 
+  #green 
   describe "GET random page (rock, paper, or scissors)" do
     it "should be successful" do
 		@defeat = {rock: :scissors, paper: :rock, scissors: :paper}
 		@throws = @defeat.keys
 		@my_throw = @throws.sample
   		@comp_throw = @throws.sample
-      match 'throw/@my_throw' => 'throw#my_throw'
+      match '/throw/@my_throw' => 'throw#my_throw'
       response.should be_success
     end
   end
 
-  #currently by best guess. Still doesn't work, though.
+  #green
+  describe "GET instructions" do
+	it "should be successful" do
+		match 'throw'
+    		#response.should contain("The game is played as follows")
+		response.should be_success
+	end
+  end
+
+  #red
+  #currently my best guess. Still doesn't work, though.
   describe "Winners and Losers" do
 	it "should win, lose or tie" do
 		@defeat = {rock: :scissors, paper: :rock, scissors: :paper}
@@ -20,12 +34,15 @@ describe ThrowController do
 		@my_throw = @throws.sample
   		@comp_throw = @throws.sample
 
-		get "throw/#{@my_throw}"
+		#get? match? visit?
+		match "/throw/#{@my_throw}"
+		
+		#result is ending up nil...
+		result = assigns(:result)
 
-		result = assigns[:result]
     		if @my_throw==@comp_throw
 			result.should == "You tied."
-    		elsif @comp_throw == defeat[@my_throw] 
+    		elsif @comp_throw == @defeat[@my_throw] 
      		 	result.should == "You Won!"
     		else
        		result.should == "You Lost!"
@@ -34,6 +51,11 @@ describe ThrowController do
 	end
   end
 end
+
+#Current Error:
+#     ActionController::RoutingError:
+#       No route matches {:controller=>"throw", :action=>"throw/rock"}
+
 
 #Also tried this:
 #	  	throw_controller = ThrowController.new
