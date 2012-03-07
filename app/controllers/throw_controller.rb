@@ -16,7 +16,9 @@ else
     #printed out in stats later
     session[:history] << @player_throw
     session[:history] << @computer_throw
-    
+
+    #session[:counter] also needed to be initialized as an
+    #int in application_controller.rb
     session[:counter] += 1
 
     if @player_throw == @computer_throw
