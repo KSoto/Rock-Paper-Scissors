@@ -18,13 +18,11 @@ describe ThrowController do
 
   #green
   describe "GET instructions" do
-	it "should be successful" do
-		match 'throw'
-    		#render isn't working for me...
-		#render
-		#rendered.should =~ "The game is played as follows"
-		#response.should contain("The game is played as follows")
-		response.should be_success
+	it "should contain game instructions" do
+		get :instructions
+		response.should contain("The game is played as follows")
+		#this one also works:
+		#response.should have_selector("h1", :content => "Rock, Paper, Scissors! - Instructions")
 	end
   end
 
@@ -34,19 +32,23 @@ describe ThrowController do
 	it "should win, lose or tie" do
 		@defeat = {rock: :scissors, paper: :rock, scissors: :paper}
 		@throws = @defeat.keys
-		@my_throw = @throws.sample
-  		@comp_throw = @throws.sample
-
-		#get? match? visit?
-		match "/throw/#{@my_throw}"
+		@my_throw = 'paper' #@throws.sample
+		@comp_throw = 'paper' #@throws.sample
+	
+		#get the action, and set the param ':type' with our
+		#generated move (rock, paper, or scissors)
+		#Also set what the computer will throw so we can
+		#see if the response is correct:
+		get :my_throw, :type => @my_throw, :computer_throw => @comp_throw
 		
-		#result is ending up nil...
+		#@comp_throw = assigns(:computer_throw)
+
     		if @my_throw==@comp_throw
-			assigns(:result).should == "You tied."
+			response.should contain("You tied.")
     		elsif @comp_throw == @defeat[@my_throw] 
-     		 	assigns(:result).should == "You Won!"
+			response.should contain("You Won!")
     		else
-       		assigns(:result).should == "You Lost!"
+			response.should contain("You Lost!")
     		end
 
 	end
