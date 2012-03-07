@@ -1,4 +1,4 @@
-CURRENT STATUS: Everything works except for one of the tests -[throw_controller_spec](https://github.com/KSoto/Rock-Paper-Scissors/blob/master/spec/controllers/throw_controller_spec.rb)
+**CURRENT STATUS: Everything works, including tests!**
 
 CPSC 473 - Web Programming and Data Management
 
@@ -14,7 +14,7 @@ Implement the Sinatra Rock, Paper, Scissors app into a Rails app.
 
 ---------------------------------------------------------------------------------
 
-**Initial steps that should be taken:**
+**Initial steps that should be taken:** (to help out other classmates!)
 
 rails new sample_app 
 
