@@ -1,6 +1,6 @@
 class ClearController < ApplicationController
   def index
-    	session[:counter]=0
-    	session[:history].clear
+    	session[:counter] = nil
+    	session[:history] = nil
   end
 end
